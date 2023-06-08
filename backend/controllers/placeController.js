@@ -1,11 +1,12 @@
 const asyncHandler = require('express-async-handler')
 
 const Place = require('../models/placeModel')
+const User = require('../models/userModel')
 // @desc Getting all Places from api
 // @route GET /api/Places
 // @access Private
 const getPlaces = asyncHandler(async (req, res) => {
-    const places = await Place.find();
+    const places = await Place.find({ user: req.user.id });
     res.status(200).json(places)
 })
 
@@ -13,13 +14,17 @@ const getPlaces = asyncHandler(async (req, res) => {
 // @route GET /api/Places
 // @access Private
 const setPlace = asyncHandler(async (req, res) => {
-    if(!req.body.text) {
+    if(!req.body.name) {
         res.status(400)
         throw new Error('Please add a text field')
     }
 
     const place = await Place.create({
-        name: req.body.text
+        user: req.user.id,
+        name: req.body.name,
+        owner: req.body.owner,
+        description: req.body.description,
+        photos: req.body.photos
     })
     res.status(200).json(place)
 })
@@ -33,6 +38,20 @@ const updatePlace = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Place not found')
     }
+   
+    const user = await User.findById(req.user.id);
+    // Check for user
+    if(!user){
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    // !!!!!!!!!!!!!!!!!!NAPRAW!!!!!!!!!!!!!!!!!!!!!!
+    if(place.user.toString() !== place.id) {
+        res.status(401)
+        throw new Error('User not authorized')
+    }
+
     const updatedPlace = await Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
     res.status(200).json(updatedPlace)
 })
@@ -45,6 +64,19 @@ const deletePlace = asyncHandler(async (req, res) => {
     if(!place) {
         res.status(400)
         throw new Error('Place not found')
+    }
+
+    const user = await User.findById(req.user.id);
+    // Check for user
+    if(!user){
+        res.status(401)
+        throw new Error('User not found')
+    }
+    
+    // !!!!!!!!!!!!!!!!!!NAPRAW!!!!!!!!!!!!!!!!!!!!!!
+    if(place.user.toString() !== place.id) {
+        res.status(401)
+        throw new Error('User not authorized')
     }
 
     // Why remove doesn't work???
