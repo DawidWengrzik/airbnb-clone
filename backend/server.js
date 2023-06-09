@@ -8,7 +8,9 @@ const port = process.env.port || 5000
 
 connectDB()
 const app = express()
+const cors = require('cors')
 
+app.use(cors()) // Use this after the variable declaration
 // setting what we pass into endpoints
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))

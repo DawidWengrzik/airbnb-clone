@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Dashobard from './features/pages/Dashobard';
-import Login from './features/pages/Login';
-import Register from './features/pages/Register';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Dashobard from './pages/Dashobard';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import Header from './Components/Header';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         </Routes>
       </div>
     </Router>
+    {/*Put the toaster popups*/}
+    <ToastContainer />
     </>
   );
 }
