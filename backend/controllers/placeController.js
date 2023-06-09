@@ -6,7 +6,7 @@ const User = require('../models/userModel')
 // @route GET /api/Places
 // @access Private
 const getPlaces = asyncHandler(async (req, res) => {
-    const places = await Place.find({ user: req.user.id });
+    const places = await Place.find();
     res.status(200).json(places)
 })
 
