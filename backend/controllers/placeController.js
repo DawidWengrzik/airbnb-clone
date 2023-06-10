@@ -38,16 +38,14 @@ const updatePlace = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Place not found')
     }
-   
-    const user = await User.findById(req.user.id);
     // Check for user
-    if(!user){
+    if(!req.user){
         res.status(401)
         throw new Error('User not found')
     }
 
     // !!!!!!!!!!!!!!!!!!NAPRAW!!!!!!!!!!!!!!!!!!!!!!
-    if(place.user.toString() !== place.id) {
+    if(place.user.toString() !== req.place.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
@@ -65,16 +63,14 @@ const deletePlace = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Place not found')
     }
-
-    const user = await User.findById(req.user.id);
     // Check for user
-    if(!user){
+    if(!req.user){
         res.status(401)
         throw new Error('User not found')
     }
     
     // !!!!!!!!!!!!!!!!!!NAPRAW!!!!!!!!!!!!!!!!!!!!!!
-    if(place.user.toString() !== place.id) {
+    if(place.user.toString() !== req.place.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
