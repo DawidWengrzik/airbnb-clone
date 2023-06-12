@@ -5,6 +5,6 @@ import placeReducer from '../features/places/placeSlice'
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    place: placeReducer,
+    places: placeReducer,
   },
 });

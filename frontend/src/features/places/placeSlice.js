@@ -9,10 +9,36 @@ const initialState = {
     message: '',
 }
 
+export const getPlaces = createAsyncThunk('places/getAll', async(_, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await placeService.getPlaces(token)
+    } catch (error) {
+        const message =
+            (error.response && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 export const createPlace = createAsyncThunk('places/create', async (placeData, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token;
         return await placeService.createPlace(placeData, token)
+    } catch (error) {
+        const message =
+            (error.response && error.response.data && error.response.data.message) ||
+            error.message ||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+export const deletePlace = createAsyncThunk('places/delete', async (placeId, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await placeService.deletePlace(placeId, token)
     } catch (error) {
         const message =
             (error.response && error.response.data && error.response.data.message) ||
@@ -41,6 +67,34 @@ export const placeSlice = createSlice({
             state.places.push(action.payload)
           })
           .addCase(createPlace.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+          })
+          .addCase(getPlaces.pending, (state) => {
+            state.isLoading = true
+          })
+          .addCase(getPlaces.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.places = action.payload
+          })
+          .addCase(getPlaces.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+          })
+          .addCase(deletePlace.pending, (state) => {
+            state.isLoading = true
+          })
+          .addCase(deletePlace.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.places = state.places.filter(place => 
+                place._id !== action.payload.id
+            )
+          })
+          .addCase(deletePlace.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload

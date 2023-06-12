@@ -59,26 +59,28 @@ const updatePlace = asyncHandler(async (req, res) => {
 // @access Private
 const deletePlace = asyncHandler(async (req, res) => {
     const place = await Place.findById(req.params.id)
-    if(!place) {
-        res.status(400)
-        throw new Error('Place not found')
+  
+    if (!place) {
+      res.status(400)
+      throw new Error('Goal not found')
     }
+  
     // Check for user
-    if(!req.user){
-        res.status(401)
-        throw new Error('User not found')
+    if (!req.user) {
+      res.status(401)
+      throw new Error('User not found')
     }
-    
-    // !!!!!!!!!!!!!!!!!!NAPRAW!!!!!!!!!!!!!!!!!!!!!!
-    if(place.user.toString() !== req.place.id) {
-        res.status(401)
-        throw new Error('User not authorized')
+  
+    // Make sure the logged in user matches the goal user
+    if (place.user.toString() !== req.user.id) {
+      res.status(401)
+      throw new Error('User not authorized')
     }
-
-    // Why remove doesn't work???
-    const deletedPlace = await Place.findByIdAndRemove(req.params.id, {id: req.params.id})
-    res.status(200).json(deletedPlace)
-})
+  
+    await place.deleteOne()
+  
+    res.status(200).json({ id: req.params.id })
+  })
 
 module.exports = {
     getPlaces,
