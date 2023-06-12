@@ -8,30 +8,32 @@ import PlaceItem from '../Components/PlaceItem'
 import { getPlaces, reset } from '../features/places/placeSlice'
 
 const Dashobard = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-  const { user } = useSelector((state) => state.auth) 
-  const { places, isLoading, isError, message} = useSelector((state) => state.places)
+  const { user } = useSelector((state) => state.auth)
+  const { places, isLoading, isError, message } = useSelector(
+    (state) => state.places
+  )
 
   useEffect(() => {
-    if(isError) {
+    if (isError) {
       console.log(message)
     }
 
-    if(!user) {
+    if (!user) {
       navigate('/login')
     }
+    else{ 
+      dispatch(getPlaces())
+    }
 
-    dispatch(getPlaces())
-
-    // If component is unmount it would be cleared
     return () => {
       dispatch(reset())
     }
   }, [user, navigate, isError, message, dispatch])
 
-  if(isLoading) {
+  if (isLoading) {
     return <Spinner />
   }
 
