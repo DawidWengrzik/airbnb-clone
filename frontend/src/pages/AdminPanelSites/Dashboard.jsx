@@ -2,12 +2,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import PlaceForm from '../Components/PlaceForm'
-import Spinner from '../Components/Spinner'
-import PlaceItem from '../Components/PlaceItem'
-import { getPlaces, reset } from '../features/places/placeSlice'
+import PlaceForm from '../../Components/PlaceForm'
+import Spinner from '../../Components/Spinner'
+import PlaceItem from '../../Components/PlaceItem'
+import { getPlaces, reset } from '../../features/places/placeSlice'
 
-const Dashobard = () => {
+const Dashboard = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -22,7 +22,7 @@ const Dashobard = () => {
     }
 
     if (!user) {
-      navigate('/login')
+      navigate('/admin/login')
     }
     else{ 
       dispatch(getPlaces())
@@ -59,4 +59,4 @@ const Dashobard = () => {
   )
 }
 
-export default Dashobard
+export default Dashboard

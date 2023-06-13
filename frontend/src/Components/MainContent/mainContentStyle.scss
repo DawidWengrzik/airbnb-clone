@@ -1,0 +1,151 @@
+$primaryColor:#ff385c;
+$linesColor:#e6e3e3;
+$greyFont:#949494;
+$logoFont:'Mulish', sans-serif;
+$main-font: 0.91rem;
+
+
+.main-content__container{
+    margin: 16px 0 40px 0;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    padding: 0 80px;
+}
+
+.card-container {
+    padding: 8px 0 32px 0;
+    width: 256px;
+}
+
+.image-container {
+    height: 270px;
+    width: 256px;
+    border-radius: 15px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.hotel-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    position: absolute;
+}
+
+.hotel-controls {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 12px 12px 0 12px;
+    position: relative;
+}
+
+.controls__btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+}
+
+.set-image__btn{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: none;
+    font-size: 19px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,0.9);
+    &:hover {
+        background-color: rgba(255,255,255)
+    }
+}
+
+.heart-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: red;
+    fill: white;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.heart-icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+
+.photo-slider {
+    position: absolute;
+    display: flex;
+    height:18px;
+    width: 55px;
+    bottom: 0;
+}
+
+.slider-container {
+    width: 100%;
+    height: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider-el {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(248, 248, 248, 0.6);
+}
+
+.last {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.slider-el__active {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.info-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    font-size: 15px;
+    &:span { 
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+
+.info-place-name, .place-rate, .place-price span {
+    font-weight: 600;
+}
+
+.place-rate {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.place-owner_info, .place-date_info {
+    color: $greyFont;
+}
+
+.info-place-name .place-owner_info, .place-date_info, .place-price {
+    grid-column: 1;
+}

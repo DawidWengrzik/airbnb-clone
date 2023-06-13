@@ -1,0 +1,178 @@
+$primaryColor:#ff385c;
+$linesColor:#e6e3e3;
+$greyFont:#949494;
+$logoFont:'Mulish', sans-serif;
+$main-font: 0.91rem;
+
+
+.logo-wapper {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.search-bar {
+    height: 48px;
+    box-sizing: border-box;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    border: 0.1rem solid $linesColor;
+    border-radius: 30px;
+    padding: 1px;
+    border-radius: 40px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s ease;
+}
+
+.search-bar__btn {
+    cursor: pointer;
+    border: none;
+    height: 100%;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 84px;
+    &:first-child {
+        border-radius: 30px 0 0 30px;
+    }
+    &:last-child {
+        border-radius: 0 30px 30px 0;
+    }
+    &:not(:last-child):after {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 26px;
+        border-left: 0.12rem solid $linesColor;
+        position: absolute;
+        right: -1px;
+        color: $main-font;
+    }
+}
+
+.search-bar__btn__span {
+    display: inline-block;
+    padding: 0 16px;
+    font-weight: 500;
+    font-size: $main-font;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+    &:not(:last-child) {
+        color: $greyFont;
+    }
+}
+
+.search-bar__btn--loop {
+    background-color: $primaryColor;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    height: 32px;
+    width: 32px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-panel {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.user-panel__btn {
+    min-width: 46px;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 40px;
+    border: none;
+    font-weight: 500;
+    font-size: $main-font;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    &:not(:last-child):hover{
+        background-color: #fcf8f7;
+    }
+
+    &:last-child {
+        border: 0.12rem solid $linesColor;
+        min-width: 77px ;
+        padding: 5px 5px 5px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        &:hover {
+            box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+        }
+    }
+}
+
+@mixin hamburger-line  {
+    width: 100%;
+    height: 0.12rem;
+    background-color: #222;
+    position: absolute;
+}
+
+.user-panel__btn-hamburger {
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    .hamburger-inner {
+        @include hamburger-line;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        &::before,
+        &::after{
+            content: '';
+            @include hamburger-line;
+            left: 0;
+        }
+        &::before {
+            top: -0.26rem;
+        }
+        &::after {
+            top: 0.26rem;
+        }
+    }
+}
+
+.user-box {
+    width: 28px;
+    height: 28px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $greyFont;
+    border-radius: 50%;
+    color: white;
+    font-size: x-large;
+    overflow: hidden;
+    border: #949494 0.2rem solid;
+    margin-left: 12px;
+}
+
+.user-box__icon {
+    fill:white;
+    transform: translateY(0.15rem);
+}
+.user-panel__btn--globe{
+    font-size: 19px;
+}
+
