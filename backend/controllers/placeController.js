@@ -22,8 +22,8 @@ const setPlace = asyncHandler(async (req, res) => {
     const place = await Place.create({
         user: req.user.id,
         name: req.body.name,
-        owner: req.body.owner,
         description: req.body.description,
+        price: req.body.price,
         photos: req.body.photos
     })
     res.status(200).json(place)

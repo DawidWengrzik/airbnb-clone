@@ -102,6 +102,10 @@ $main-font: 0.91rem;
     cursor: pointer;
     display: inline-block;
     white-space: nowrap;
+    
+    &:span {
+    }
+
     &:not(:last-child):hover{
         background-color: #fcf8f7;
     }

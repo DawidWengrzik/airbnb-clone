@@ -7,7 +7,6 @@ const placeSchema = mongoose.Schema({
         ref: 'User'
     },
     name: String,
-    owner: String,
     description: String,
     price: Number,
     photos: [String],

@@ -11,8 +11,7 @@ const initialState = {
 
 export const getPlaces = createAsyncThunk('places/getAll', async(_, thunkAPI) => {
     try {
-        const token = thunkAPI.getState().auth.user.token;
-        return await placeService.getPlaces(token)
+        return await placeService.getPlaces()
     } catch (error) {
         const message =
             (error.response && error.response.data && error.response.data.message) ||

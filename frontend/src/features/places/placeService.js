@@ -14,14 +14,9 @@ const createPlace = async (placeData, token) => {
     return response.data
 }
 
-const getPlaces = async (token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}` 
-        }
-    }
+const getPlaces = async () => {
 
-    const response = await axios.get(API_URL, config)
+    const response = await axios.get(API_URL)
 
     return response.data
 }

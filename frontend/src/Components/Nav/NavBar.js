@@ -12,7 +12,7 @@ const NavBar = () => {
             <picture>
                 <source
                 media="(max-width: 1130px)"
-                srcset={smallLogo}
+                srcSet={smallLogo}
                 height={'35px'}
                 sizes="1130px"
                 />

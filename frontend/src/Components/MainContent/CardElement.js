@@ -7,7 +7,7 @@ const CardElement = () => {
   return (
     <div className='card-container'>
         <div className='image-container'>
-          <img alt='Hotel photos' class='hotel-image' src='https://meteor-turystyka.pl/images/base/33/32844/364830_40.jpg'></img>
+          <img alt='Hotel photos' className='hotel-image' src='https://meteor-turystyka.pl/images/base/33/32844/364830_40.jpg'></img>
           <div className='hotel-controls'> 
             <button className='heart-btn'><FaRegHeart className='heart-icon'/></button>
             <div className='controls__btns'>
