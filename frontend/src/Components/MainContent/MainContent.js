@@ -2,10 +2,10 @@ import React from 'react'
 import './mainContentStyle.scss'
 import CardElement from './CardElement';
 
-const MainContent = () => {
+const MainContent = ({ places }) => {
   return (
     <div className='main-content__container'>
-      {[...Array(29)].map(el => <CardElement /> )}
+      {places.map(place => <CardElement place={place} key={place._id}/> )}
       
     </div>
   )

@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { getPlaces, reset } from '../features/places/placeSlice';
+import AuthorizationPopup from '../Components/AuthPopup/AuthorizationPopup';
 
 const AirbnbContent = () => {
   const navigate = useNavigate()
@@ -30,9 +31,10 @@ const AirbnbContent = () => {
 
   return (
     <div className="App">
+      <AuthorizationPopup></AuthorizationPopup>
       <NavBar />
       <PlacesSlider />
-      <MainContent />
+      <MainContent places={places} />
     </div>
   )
 }

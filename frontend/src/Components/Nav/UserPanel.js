@@ -1,26 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {HiOutlineGlobeAlt} from 'react-icons/hi'
 import {FaUser} from 'react-icons/fa'
 
 const UserPanel = () => {
-  return (
-    <div className='user-panel'>
-        <button className='user-panel__btn'>
-            <span>Wynajmij swój dom na Airbnb</span>
-        </button>
-        <button className='user-panel__btn'>
-            <span><HiOutlineGlobeAlt className='user-panel__btn--globe'/></span>
-        </button>
-        <button className='user-panel__btn'>
-            <span className='user-panel__btn-hamburger'>
-                <span className='hamburger-inner'></span>
-            </span>
-            <span className='user-box'> 
-                <FaUser className='user-box__icon'/>
-            </span>
-        </button>
-    </div>
-  )
+
+    const [isDropdownActive, setIsDropdownActive] = useState(false);
+
+    return (
+        <div className='user-panel'>
+            <button className='user-panel__btn'>
+                <span>Wynajmij swój dom na Airbnb</span>
+            </button>
+            <button className='user-panel__btn'>
+                <span><HiOutlineGlobeAlt className='user-panel__btn--globe'/></span>
+            </button>
+            <button className='user-panel__btn' onClick={() => setIsDropdownActive(!isDropdownActive)}>
+                <span className='user-panel__btn-hamburger'>
+                    <span className='hamburger-inner'></span>
+                </span>
+                <span className='user-box'> 
+                    <FaUser className='user-box__icon'/>
+                </span>
+                {isDropdownActive && 
+                    (<div className='user-panel__dropdown'>
+                        <span className='dropdown-span'>Zarejestruj się</span>
+                        <span className='dropdown-span'>Zaloguj się</span>
+                        <hr className='dropdown-separator'/>
+                        <span className='dropdown-span'>Wynajmij swój dom na Airbnb</span>
+                    <span className='dropdown-span'>Pomoc</span>
+                </div>)}
+            </button>
+        </div>
+    )
 }
 
 export default UserPanel

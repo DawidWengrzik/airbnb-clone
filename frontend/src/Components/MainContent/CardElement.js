@@ -3,7 +3,10 @@ import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { FaRegHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 
-const CardElement = () => {
+const CardElement = ({ place }) => {
+
+  const { name, description, price, photos} = place
+
   return (
     <div className='card-container'>
         <div className='image-container'>
@@ -30,11 +33,11 @@ const CardElement = () => {
           </div>    
         </div>
         <div className='info-container'>
-          <span className='info-place-name'>Surry Hills, Australia</span>
+          <span className='info-place-name'>{name}, Australia</span>
           <span className='place-rate'><AiFillStar className='place-rate_star'/>4,92</span>
           <span className='place-owner_info'>Pobyt u: Byron</span>
           <span className='place-date_info'>22-27 paź - Gospodarz prywatny</span>
-          <span className='place-price'><span>483 zł</span> noc</span>
+          <span className='place-price'><span>{price ? price : 237} zł</span> noc</span>
         </div>
       </div>
   )
