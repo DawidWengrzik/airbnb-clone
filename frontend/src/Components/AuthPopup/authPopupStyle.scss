@@ -8,10 +8,12 @@ $main-font: 0.91rem;
 .popup-container{
     position: absolute;
     box-sizing: border-box;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     z-index: 2000;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.60);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +22,6 @@ $main-font: 0.91rem;
 .popup-form {
     background-color: white;
     width: 30%;
-    height: 70%;
     border-radius: 16px;
 }
 
@@ -94,9 +95,15 @@ $main-font: 0.91rem;
     font-size: inherit;
 }
 
-.form-login__info {
+.from-login__container {
+    margin-top: 8px;
+}
+
+.from-login__container{
+    line-height: 16px !important;
     font-size: 12px;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    
 }
 
 .info-highlight {
@@ -130,4 +137,97 @@ $main-font: 0.91rem;
         color: #717171;
         font-size: 12px;
     }
+}
+
+.form-login__input {
+    display: flex;
+}
+
+.login-number {
+    padding: 26px 0 0 12px;
+}
+
+.login-input { 
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 26px;
+    margin-bottom: 6px;
+    border: none;
+}
+
+.form-button {
+    margin: 16px 0 0 0;
+    background: $primaryColor;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    span {
+        color: $highligtColor;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.content-separator {
+    display: flex;
+    margin: 16px 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    &::before, &::after{
+        content: "" !important;
+        display: block !important;
+        width: 100% !important;
+        height: 1px !important;
+        background-color: rgb(221, 221, 221) !important;
+    }
+
+    &::before {
+        margin-right: 16px !important;
+    }
+
+    &::after {
+        margin-left: 16px !important;
+    }
+    
+}
+
+.dropdown-separator{
+    margin: 8px 0;
+    border-top: $linesColor 0.1rem solid;
+}
+
+.login-options {
+    display: grid;
+    gap: 16px;
+}
+
+.login-option {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    justify-content: center;
+    height: 48px;
+    padding: 13px 23px;
+    border: #222 solid 1px;
+    font-size: 22px;
+    font-family: inherit;
+    font-weight: 500;
+    position: relative;
+    span {
+        font-size: 14px;  
+    }
+    &:hover {
+        cursor: pointer;
+        background: $highligtColor;
+    }
+}
+
+.login-option__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: inherit;
 }
