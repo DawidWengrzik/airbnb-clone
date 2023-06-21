@@ -6,6 +6,8 @@ $main-font: 0.91rem;
 
 
 .main-content__container{
+    overflow:auto;
+    height:100%;
     margin: 16px 0 40px 0;
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;

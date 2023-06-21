@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { getPlaces, reset } from '../features/places/placeSlice';
 import AuthorizationPopup from '../Components/AuthPopup/AuthorizationPopup';
+import Footer from '../Components/Footer/Footer';
 
 const AirbnbContent = () => {
   const navigate = useNavigate()
@@ -35,6 +36,7 @@ const AirbnbContent = () => {
       <NavBar />
       <PlacesSlider />
       <MainContent places={places} />
+      <Footer />
     </div>
   )
 }
