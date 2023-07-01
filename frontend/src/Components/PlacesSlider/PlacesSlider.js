@@ -5,11 +5,14 @@ import { CiSliderHorizontal } from 'react-icons/ci'
 
 import { BsHouseDoor } from 'react-icons/bs'
 
-const PlacesSlider = () => {
+import { UseScrollPosition } from '../../hooks/useScrollPosition';
+
+  const PlacesSlider = () => {
 
   const sliderRef = useRef(null);
   const [sliderWidth, setSliderWidth] = useState(0);
   const [currentElement, setCurrentElement] = useState(0);
+  const scrollPosition = UseScrollPosition();
 
   useLayoutEffect(() => {
     setSliderWidth(sliderRef.current.offsetWidth);
@@ -21,7 +24,7 @@ const PlacesSlider = () => {
   
 
   return (
-    <div className='places-container'>
+    <div className={`places-container ${scrollPosition ? "shadow-bottom" : ""}`}>
         <div className='place-slider'>
           {currentElement <= -1 ? 
           <div className='btn-container chevron-left'>

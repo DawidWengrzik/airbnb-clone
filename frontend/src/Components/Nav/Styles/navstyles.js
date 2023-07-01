@@ -13,5 +13,5 @@ export const StyledNavbar = styled.nav`
     position: sticky;
     top: 0;
     background: white;
-    z-index: 1;
+    z-index: 2;
 `
