@@ -7,6 +7,7 @@ const PlaceForm = () => {
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [photo, setPhoto] = useState('');
   const [photos, setPhotos] = useState([]);
   const [price, setPrice] = useState();
 
@@ -16,6 +17,11 @@ const PlaceForm = () => {
     e.preventDefault()
     dispatch(createPlace({name, description, photos, price}))
     setName('')
+  }
+
+  const addPhoto = (photo) => {
+    setPhotos([...photos, photo])
+    setPhoto('')
   }
 
   return (
@@ -42,8 +48,14 @@ const PlaceForm = () => {
             name='photos' 
             id='photos' 
             placeholder='Photos urls'
-            value={photos}
-            onChange={(e) => setPhotos(e.target.value)}></input>
+            value={photo}
+            onChange={(e) => setPhoto(e.target.value)}></input>
+          <button onClick={() => addPhoto(photo)} type='button'>Add photo</button>
+          <div className='form__photos-container'>
+            {photos.map(photo => (
+              <img key={photo} src={photo} style={{width: '100px', height: '100px'}}></img>
+            ))}
+          </div>
           <input 
             type='number' 
             name='price' 

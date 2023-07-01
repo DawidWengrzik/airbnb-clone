@@ -1,4 +1,5 @@
 import './footer.scss'
+import {HiChevronUp, HiOutlineGlobeAlt} from 'react-icons/hi'
 
 const Footer = () => {
   return (
@@ -15,6 +16,20 @@ const Footer = () => {
                 <li className='info-separator'><span>·</span></li>
                 <li className='info-element'><a>Informacje o firmie</a></li>
             </ul>
+        </div>
+        <div className='settings-side'>
+          <button className='span-btn'>
+              <span style={{'margin-right': '8px'}}><HiOutlineGlobeAlt className='btn-globe'/></span>
+              <span className='span-highlight'>Polski (PL)</span>
+          </button>
+          <button className='span-btn'>
+            <span style={{'margin-right': '8px'}}>zł</span>
+            <span className='span-highlight'>PLN</span>
+          </button>
+          <button className='span-btn'>
+            <span className='span-highlight'>Pomoc i materiały </span>
+            <span><HiChevronUp className='btn-globe'/></span>
+          </button>
         </div>
     </footer>
   )

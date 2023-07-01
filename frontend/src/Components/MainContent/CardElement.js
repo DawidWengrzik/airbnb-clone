@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { FaRegHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
@@ -6,18 +6,20 @@ import { AiFillStar } from 'react-icons/ai';
 const CardElement = ({ place }) => {
 
   const { name, description, price, photos} = place
+  const [placePhoto, setPlacePhoto] = useState(0)
+
 
   return (
     <div className='card-container'>
         <div className='image-container'>
-          <img alt='Hotel photos' className='hotel-image' src='https://meteor-turystyka.pl/images/base/33/32844/364830_40.jpg'></img>
+          <img alt='Hotel photos' className='hotel-image' src={photos[Math.abs(placePhoto % photos.length)]}></img>
           <div className='hotel-controls'> 
             <button className='heart-btn'><FaRegHeart className='heart-icon'/></button>
             <div className='controls__btns'>
-              <button className='set-image__btn prev'>
+              <button className='set-image__btn prev' onClick={() => setPlacePhoto(placePhoto-1)}>
                 <span className="btn-icon"><HiChevronLeft /></span>
               </button>
-              <button className='set-image__btn next'>
+              <button className='set-image__btn next' onClick={() => setPlacePhoto(placePhoto+1)}>
                 <span className="btn-icon"><HiChevronRight /></span>
               </button>
             </div> 
