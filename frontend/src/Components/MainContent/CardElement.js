@@ -8,20 +8,37 @@ const CardElement = ({ place }) => {
   const { name, description, price, photos} = place
   const [placePhoto, setPlacePhoto] = useState(0)
 
+  const slide = (direction) => {
+    if (Math.abs(placePhoto) !== photos.length) {
+      setPlacePhoto(placePhoto + direction)
+      console.log(placePhoto)
+    }
+    
+  }
 
   return (
     <div className='card-container'>
         <div className='image-container'>
-          <img alt='Hotel photos' className='hotel-image' src={photos[Math.abs(placePhoto % photos.length)]}></img>
+          {photos.map((photo, index) => {
+            return (
+              <img alt='Hotel photos' 
+              className='hotel-image' 
+              src={photos[index]} 
+              key={index} 
+              style={{'transform':`translateX(${(placePhoto)*100}%)`}}></img>
+            )
+          })}
           <div className='hotel-controls'> 
             <button className='heart-btn'><FaRegHeart className='heart-icon'/></button>
             <div className='controls__btns'>
-              <button className='set-image__btn prev' onClick={() => setPlacePhoto(placePhoto-1)}>
+              {placePhoto !== 0 && 
+              <button className='set-image__btn prev' onClick={() => slide(1)}>
                 <span className="btn-icon"><HiChevronLeft /></span>
-              </button>
-              <button className='set-image__btn next' onClick={() => setPlacePhoto(placePhoto+1)}>
+              </button>}
+              {Math.abs(placePhoto) !== photos.length - 1 &&
+              <button className='set-image__btn next' onClick={() => slide(-1)}>
                 <span className="btn-icon"><HiChevronRight /></span>
-              </button>
+              </button>}
             </div> 
             <div className='photo-slider'>
               <div className='slider-container'>

@@ -22,7 +22,6 @@ import { UseScrollPosition } from '../../hooks/useScrollPosition';
     setCurrentElement(currentElement + 6 * (100 * direction))
   }
   
-
   return (
     <div className={`places-container ${scrollPosition ? "shadow-bottom" : ""}`}>
         <div className='place-slider'>
@@ -39,7 +38,7 @@ import { UseScrollPosition } from '../../hooks/useScrollPosition';
               </li>
               {[...Array(29)].map(el => {
                 return(
-                  <li className='slider-list__item'  style={{transform : `translateX(${currentElement}px)`}}>
+                  <li className='slider-list__item'  style={{transform : `translateX(${currentElement}px)`}} key={el}>
                     <BsHouseDoor className='icon' />
                     <span className='place-name'>Pokoje prywatne</span>
                   </li>

@@ -19,11 +19,11 @@ const Footer = () => {
         </div>
         <div className='settings-side'>
           <button className='span-btn'>
-              <span style={{'margin-right': '8px'}}><HiOutlineGlobeAlt className='btn-globe'/></span>
+              <span style={{marginRight: '8px'}}><HiOutlineGlobeAlt className='btn-globe'/></span>
               <span className='span-highlight'>Polski (PL)</span>
           </button>
           <button className='span-btn'>
-            <span style={{'margin-right': '8px'}}>zł</span>
+            <span style={{marginRight: '8px'}}>zł</span>
             <span className='span-highlight'>PLN</span>
           </button>
           <button className='span-btn'>
