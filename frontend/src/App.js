@@ -8,6 +8,7 @@ import Dashboard from './pages/AdminPanelSites/Dashboard';
 import Login from './pages/AdminPanelSites/Login';
 import Register from './pages/AdminPanelSites/Register';
 import AirbnbContent from './pages/AirbnbContent';
+import PlaceDetails from './pages/PlaceDetails/PlaceDetails';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='login' element={<Login />} />
             <Route path='register' element={<Register />} />
           </Route>
+          <Route path='/places/:id' element={<PlaceDetails />}></Route>
         </Routes>
       </div>
     </Router>

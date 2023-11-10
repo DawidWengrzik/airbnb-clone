@@ -21,6 +21,18 @@ export const getPlaces = createAsyncThunk('places/getAll', async(_, thunkAPI) =>
     }
 })
 
+export const getSpecificPlace = createAsyncThunk('places/getPlace', async(placeId, thunkAPI) => {
+  try {
+      return await placeService.getSpecificPlace(placeId)
+  } catch (error) {
+      const message =
+          (error.response && error.response.data && error.response.data.message) ||
+          error.message ||
+          error.toString()
+      return thunkAPI.rejectWithValue(message)
+  }
+})
+
 export const createPlace = createAsyncThunk('places/create', async (placeData, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token;
@@ -79,6 +91,21 @@ export const placeSlice = createSlice({
             state.places = action.payload
           })
           .addCase(getPlaces.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+          })
+          .addCase(getSpecificPlace.pending, (state) => {
+            state.isLoading = true
+          })
+          .addCase(getSpecificPlace.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.places = state.places.find(place => 
+              place._id === action.payload.id
+          )
+          })
+          .addCase(getSpecificPlace.rejected, (state, action) => {
             state.isLoading = false
             state.isError = true
             state.message = action.payload

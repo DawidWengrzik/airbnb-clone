@@ -10,6 +10,14 @@ const getPlaces = asyncHandler(async (req, res) => {
     res.status(200).json(places)
 })
 
+// @desc Getting specific Place from api
+// @route GET /api/Places/:id
+// @access Private
+const getSpecificPlace = asyncHandler(async (req, res) => {
+    const place = await Place.findById(req.params.id);
+    res.status(200).json(place)
+})
+
 // @desc Put the Place in db
 // @route GET /api/Places
 // @access Private
@@ -86,5 +94,6 @@ module.exports = {
     getPlaces,
     setPlace,
     updatePlace,
+    getSpecificPlace,
     deletePlace
 }

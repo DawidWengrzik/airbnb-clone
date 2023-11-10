@@ -4,6 +4,34 @@ $greyFont:#949494;
 $logoFont:'Mulish', sans-serif;
 $main-font: 0.91rem;
 
+.nav-bar__container {
+    display: flex;
+    justify-content: center;
+    border-bottom: 0.1rem solid $linesColor;
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 2;
+}
+
+.nav-sections-container {
+    width: 100%;
+    height: 80px;
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+
+.nav-sections-container__places {
+    width: 1280px;
+    height: 80px;
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .logo-wapper {
     display: flex;

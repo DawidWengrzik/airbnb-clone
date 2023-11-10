@@ -21,6 +21,13 @@ const getPlaces = async () => {
     return response.data
 }
 
+const getSpecificPlace = async (placeId) => {
+
+    const response = await axios.get(API_URL + placeId)
+
+    return response.data
+}
+
 const deletePlace = async (placeId, token) => {
     const config = {
         headers: {
@@ -36,6 +43,7 @@ const deletePlace = async (placeId, token) => {
 const placeService = {
     createPlace,
     getPlaces,
+    getSpecificPlace,
     deletePlace
 }
 
