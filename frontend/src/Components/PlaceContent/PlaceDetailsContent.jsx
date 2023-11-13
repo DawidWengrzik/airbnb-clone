@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {AiFillStar, AiOutlineHeart} from 'react-icons/ai'
 import {GiSportMedal} from 'react-icons/gi'
 import { FiShare } from 'react-icons/fi'
 import './placeDetails.scss'
 
-const PlaceDetailsContent = ({ placeId }) => {
+const PlaceDetailsContent = ({ specificPlace }) => {
+
+  const { name, description, price, photos} = specificPlace
+
   return (
     <div className='place-info__header'>
-      <h2>Place Details</h2>
+      <h2>{name} </h2>
       <div>
         <ul className='place-info__list'>
           <li className='info-list__item'>

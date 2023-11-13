@@ -20,7 +20,7 @@ const AirbnbContent = () => {
 
   useEffect(() => {
     dispatch(getPlaces())
-
+    
     return () => {
       dispatch(reset())
     }

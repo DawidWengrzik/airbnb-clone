@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import NavBar from '../../Components/Nav/NavBar'
 import { useSelector, useDispatch } from 'react-redux';
 import { getPlaces, getSpecificPlace, reset } from '../../features/places/placeSlice';
@@ -11,20 +11,18 @@ const PlaceDetails = () => {
 
     const placeId = useParams();
     const dispatch = useDispatch();
-    const [chosenPlace, setChosenPlace] = useState({});
-
-    const { places, isLoading, isError, message } = useSelector(
+    const navigate = useNavigate();
+    const { chosenPlace, isLoading, isError, message } = useSelector(
         (state) => state.places
     );
 
     useEffect(() => {
-    dispatch(getPlaces())
-    dispatch(getSpecificPlace(placeId.id))
-
-    return () => {
-      dispatch(reset())
-    }
-  }, [isError, message, dispatch])
+      dispatch(getSpecificPlace(placeId.id))
+      
+      return () => {
+        dispatch(reset())
+      }
+    }, [navigate, isError, message, dispatch])
 
   if (isLoading) {
     return <Spinner />

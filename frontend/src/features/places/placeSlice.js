@@ -3,6 +3,7 @@ import placeService from './placeService';
 
 const initialState = {
     places: [],
+    chosenPlace: {},
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -101,9 +102,7 @@ export const placeSlice = createSlice({
           .addCase(getSpecificPlace.fulfilled, (state, action) => {
             state.isLoading = false
             state.isSuccess = true
-            state.places = state.places.find(place => 
-              place._id === action.payload.id
-          )
+            state.chosenPlace = action.payload
           })
           .addCase(getSpecificPlace.rejected, (state, action) => {
             state.isLoading = false
@@ -117,7 +116,7 @@ export const placeSlice = createSlice({
             state.isLoading = false
             state.isSuccess = true
             state.places = state.places.filter(place => 
-                place._id !== action.payload.id
+                place._id === action.payload.id
             )
           })
           .addCase(deletePlace.rejected, (state, action) => {

@@ -5,7 +5,7 @@ import CardElement from './CardElement';
 const MainContent = ({ places }) => {
   return (
     <div className='main-content__container'>
-      {places.map(place => <CardElement place={place} key={place._id}/> )}
+      {places.map(place => <CardElement key={place._id} place={place} /> )}
     </div>
   )
 }
