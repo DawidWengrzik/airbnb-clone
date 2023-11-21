@@ -131,6 +131,7 @@ $main-font: 0.91rem;
     font-size: $main-font;
     cursor: pointer;
     display: inline-block;
+    padding-inline:15px ;
     white-space: nowrap;
     
     &:span {

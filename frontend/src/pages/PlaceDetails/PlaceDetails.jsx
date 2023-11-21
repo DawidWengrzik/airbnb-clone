@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from '../../Components/Nav/NavBar'
 import { useSelector, useDispatch } from 'react-redux';
-import { getPlaces, getSpecificPlace, reset } from '../../features/places/placeSlice';
+import { getSpecificPlace, reset } from '../../features/places/placeSlice';
 import PlaceDetailsContent from '../../Components/PlaceContent/PlaceDetailsContent'
-import PlaceCollage from '../../Components/PlaceContent/placeCollage'
 import Spinner from '../../Components/Spinner';
 
 const PlaceDetails = () => {
@@ -32,8 +31,7 @@ const PlaceDetails = () => {
     <>
       <NavBar specificStyles='nav-sections-container__places' />
       <div className='place-info__container'>        
-        <PlaceDetailsContent specificPlace={chosenPlace}/>
-        <PlaceCollage specificPlace={chosenPlace}/>
+        <PlaceDetailsContent className="place-details__content" specificPlace={chosenPlace}/>
       </div>       
     </>
   )

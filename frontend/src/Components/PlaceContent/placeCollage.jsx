@@ -1,13 +1,17 @@
 import React from 'react'
 
-const PlaceCollage = ({ placeId }) => {
+const PlaceCollage = ({ specificPlace }) => {
+
+  const { name, description, price, photos} = specificPlace
+  
   return (
-    <div>
+    <div className='place-collage'>
         <h1 className='place-name'></h1>
         <main className='collage-container'>
-            <div className='collage-photoes'>
-                <img></img>
-            </div>
+            { photos?.map(singlePhoto => 
+              (<button className='photo-wrapper__button'>
+                <img src={singlePhoto} className='collageSinglePhoto'></img>
+              </button>)) }
         </main>
     </div>
   )
