@@ -15,8 +15,9 @@ $main-font: 0.91rem;
     z-index: 2;
 }
 
-.nav-sections-container {
+.nav-sections-container {    
     width: 100%;
+    max-width: 90vw;
     height: 80px;
     padding: 0 80px;
     display: flex;
@@ -25,9 +26,10 @@ $main-font: 0.91rem;
 }
 
 .nav-sections-container__places {
-    width: 1280px;
-    height: 80px;
+    width: 1280px;    
+    max-width: 80vw;
     padding: 0 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;

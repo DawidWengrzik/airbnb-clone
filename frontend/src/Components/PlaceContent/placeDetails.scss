@@ -4,7 +4,10 @@ $greyFont:#949494;
 $logoFont:'Mulish', sans-serif;
 $main-font: 0.91rem;
 
+
+
 .place-info__container { 
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +16,7 @@ $main-font: 0.91rem;
 .place-info {
     max-width: 80vw;  
     padding: 0 80px;  
+    width: 1280px;
 }
 
 
@@ -114,16 +118,28 @@ $main-font: 0.91rem;
     grid-column-end: 2;
 }
 
-.place-details__container {
-    padding: 32px 0 24px 0;
-    width: 55%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.place-details__ruler {
+    width: 100%;
+    border: 0;
     border-bottom: 0.1rem solid $linesColor;
+    position: absolute;
+    bottom: 0;
+}
+
+.place-details__container {
+    width: 55%;
     h2 {
         margin: 0
     }
+}
+
+.place-details_header-container {
+    width: 100%;
+    padding: 32px 0 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
 .place-details__photo--container {
@@ -136,4 +152,75 @@ $main-font: 0.91rem;
         height: 100%;
         object-fit: cover;
     }
+}
+
+.place-details__facilities {
+    position: relative;
+}
+
+.facilities-list {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0;
+    gap: 24px;
+}
+
+.facilities-list__item{
+    display: flex;
+    line-height: normal;
+    align-items: center;
+    gap: 24px;
+}
+
+.facilities-item__description {
+    padding: 0;
+    font-size: 1em;
+    h3 {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.facilities-item__icon {
+    font-size: 24px;
+}
+
+.isolated-section {
+    position: relative;
+    padding: 32px 0;
+}
+
+.translate-info {  
+    display: block;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: $linesColor;
+}
+
+.description-text {
+    padding-top: 32px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+
+.interaction-text {
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+    display: inline;
+    text-align: center;
+    svg {
+        vertical-align: middle;
+    }
+}
+
+.bedrooms-seciton__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

@@ -54,16 +54,21 @@ const CardElement = ({ place }) => {
           </div>           
         </div>    
       </div>
-      <div className='info-container'>
-        <Link to={`/places/${place._id}`}>
-          <span className='info-place-name'>{name}, Australia</span>
-          <span className='place-rate'><AiFillStar className='place-rate_star'/>4,92</span>
+      <Link to={`/places/${place._id}`} className='info-container'>
+        <div className='info-container__leftSide'>
+          <span className='info-place-name'>{name}, Australia</span>          
           <span className='place-owner_info'>Pobyt u: Byron</span>
           <span className='place-date_info'>22-27 paź - Gospodarz prywatny</span>
           <span className='place-price'><span>{price ? price : 237} zł</span> noc</span>
-        </Link>
-      </div>
+        </div>
+        <div className='place-rate'>
+          <span className='place-rate__value'>
+            <AiFillStar className='place-rate_star'/>4,92
+          </span></div>
+      </Link>
+     
     </div>
+    
   )
 }
 

@@ -29,7 +29,7 @@ const PlaceDetails = () => {
 
   return (
     <>
-      <NavBar specificStyles='nav-sections-container__places' />
+      <NavBar specificStyles='nav-sections-container__places'/>
       <div className='place-info__container'>        
         <PlaceDetailsContent className="place-details__content" specificPlace={chosenPlace}/>
       </div>       

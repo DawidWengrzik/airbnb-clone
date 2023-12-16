@@ -11,7 +11,7 @@ $main-font: 0.91rem;
     margin: 0 0 40px 0;
     display: grid;
     gap: 0 2rem;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 0 80px;
 }
 
@@ -152,10 +152,15 @@ $main-font: 0.91rem;
     width: 100%;
     display: grid;
     grid-template-columns: 80% 20%;
-    font-size: 15px;
+    font-size: 20px;
     &:span { 
         font-family: 'Times New Roman', Times, serif;
     }
+}
+
+.info-container__leftSide {
+    display: flex;
+    flex-direction: column;
 }
 
 .info-place-name, .place-rate, .place-price span {
@@ -164,8 +169,18 @@ $main-font: 0.91rem;
 
 .place-rate {
     display: flex;
+    align-items: flex-start;
+}
+
+.place-rate__value { 
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+}
+
+.place-rate_star {
+    height: 20px;
+    width: 20px;
 }
 
 .place-owner_info, .place-date_info {
