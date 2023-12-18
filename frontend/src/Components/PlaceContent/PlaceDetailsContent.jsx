@@ -3,8 +3,11 @@ import {AiFillStar, AiOutlineHeart} from 'react-icons/ai'
 import {GiSportMedal, GiDesk} from 'react-icons/gi'
 import { FiShare } from 'react-icons/fi'
 import { HiChevronRight } from 'react-icons/hi';
+
 import './placeDetails.scss'
+
 import PlaceCollage from './placeCollage'
+import ArrowButton from '../ArrowButton';
 
 const PlaceDetailsContent = ({ specificPlace }) => {
 
@@ -106,9 +109,13 @@ const PlaceDetailsContent = ({ specificPlace }) => {
         <div className='isolated-section'>
           <div className='bedrooms-seciton__header'>
             <h2 className='place-info__name'>Gdzie będziesz spać</h2>
-            <div className='bedrooms-pagination'>1/2</div>
+            <div className='bedrooms-pagination'>
+              <span>1/2</span>
+            
+              <ArrowButton classes="set-image__btn" direction={1} />
+              <ArrowButton classes="set-image__btn" direction={-1} />
+            </div>
           </div>
-         
         </div>
       </div>
     </div>

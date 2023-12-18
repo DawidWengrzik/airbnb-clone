@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { FaRegHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import ArrowButton from '../ArrowButton';
 
 const CardElement = ({ place }) => {
 
@@ -35,13 +35,10 @@ const CardElement = ({ place }) => {
           <button className='heart-btn'><FaRegHeart className='heart-icon'/></button>
           <div className='controls__btns'>
             {placePhoto !== 0 && 
-            <button className='set-image__btn prev' onClick={() => slide(1)}>
-              <span className="btn-icon"><HiChevronLeft /></span>
-            </button>}
+            <ArrowButton classes="set-image__btn prev" direction={1} clickHandler={() => slide(1)}/> }
+            
             {Math.abs(placePhoto) !== photos.length - 1 &&
-            <button className='set-image__btn next' onClick={() => slide(-1)}>
-              <span className="btn-icon"><HiChevronRight /></span>
-            </button>}
+              <ArrowButton classes="set-image__btn next" direction={-1} clickHandler={() => slide(-1)}/>}
           </div> 
           <div className='photo-slider'>
             <div className='slider-container'>

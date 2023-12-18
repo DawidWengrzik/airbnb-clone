@@ -13,9 +13,9 @@ const Search = () => {
         </button>
         <button className='search-bar__btn'>
             <span className='search-bar__btn__span'>Dodaj gości</span>
-            <button className='search-bar__btn--loop'>
+            <div className='search-bar__btn--loop' tabIndex={0}>
                 <span className='search-bar__btn--loop__span'><FiSearch /></span>
-            </button>
+            </div>
         </button>
     </div>
   )

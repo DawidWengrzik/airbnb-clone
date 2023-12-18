@@ -2,7 +2,7 @@ import React, { useRef, useState, useLayoutEffect } from 'react'
 import './placesslider.scss'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { CiSliderHorizontal } from 'react-icons/ci'
-
+import ArrowButton from '../ArrowButton';
 import { BsHouseDoor } from 'react-icons/bs'
 
 import { UseScrollPosition } from '../../hooks/useScrollPosition';
@@ -18,18 +18,14 @@ import { UseScrollPosition } from '../../hooks/useScrollPosition';
     setSliderWidth(sliderRef.current.offsetWidth);
   }, []);
 
-  const slide = (direction) => {
-    setCurrentElement(currentElement + 6 * (100 * direction))
-  }
-  
+  const slide = (direction) => setCurrentElement(currentElement + 6 * (100 * direction))
+
   return (
     <div className={`places-container ${scrollPosition ? "shadow-bottom" : ""}`}>
         <div className='place-slider'>
           {currentElement <= -1 ? 
           <div className='btn-container chevron-left'>
-            <button className='slider__btn ' onClick={() => slide(1)}>
-              <span className="btn-icon"><HiChevronLeft /></span>
-            </button>
+            <ArrowButton classes="set-image__btn previous" direction={1} clickHandler={() => slide(1)}/>
           </div>: null}
             <ul className='slider-list' ref={sliderRef}>  
               <li className='slider-list__item list__item-active' style={{transform : `translateX(${currentElement}%)`}}>
@@ -47,9 +43,7 @@ import { UseScrollPosition } from '../../hooks/useScrollPosition';
             </ul>
             {Math.abs(currentElement) <= sliderWidth ? 
             <div className='btn-container chevron-right'>
-              <button className='slider__btn ' onClick={() => slide(-1)}>
-                <span className="btn-icon"><HiChevronRight /></span>
-              </button>
+              <ArrowButton classes="set-image__btn next" direction={-1} clickHandler={() => slide(-1)}/>
             </div>:null}
           </div>
           
