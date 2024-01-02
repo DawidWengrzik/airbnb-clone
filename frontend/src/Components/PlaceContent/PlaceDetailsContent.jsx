@@ -1,17 +1,40 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import {AiFillStar, AiOutlineHeart} from 'react-icons/ai'
 import {GiSportMedal, GiDesk} from 'react-icons/gi'
 import { FiShare } from 'react-icons/fi'
 import { HiChevronRight } from 'react-icons/hi';
 
-import './placeDetails.scss'
-
 import PlaceCollage from './placeCollage'
 import ArrowButton from '../ArrowButton';
+import Calendar from 'react-calendar';
+
+import './placeDetails.scss'
+import './customCalendar.scss'
 
 const PlaceDetailsContent = ({ specificPlace }) => {
 
   const { name, description, price, photos} = specificPlace
+
+  const [selectedRange, setSelectedRange] = useState([]);
+  
+  const handleDateChange = (date) => {
+    if (selectedRange.length === 2) {
+      setSelectedRange([date]);
+    } else {
+      setSelectedRange([...selectedRange, date]);
+    }
+  };
+
+  const tileClassName = ({ date, view }) => {
+    // Dodaj własne klasy CSS w zależności od warunków
+    console.log(date)
+    if (date < Date.now()) return 'past-days'
+    if (selectedRange.length === 2 &&
+        date >= selectedRange[0] &&
+        date <= selectedRange[1]) return 'selected-days'
+
+    return '';
+  };
 
   return (
     <div className='place-info'>
@@ -106,17 +129,75 @@ const PlaceDetailsContent = ({ specificPlace }) => {
           </a>
           <hr className='place-details__ruler'></hr>
         </div>
-        <div className='isolated-section'>
-          <div className='bedrooms-seciton__header'>
+        <div className='isolated-section bedroom-section'>
+          <div className='bedrooms-section__header'>
             <h2 className='place-info__name'>Gdzie będziesz spać</h2>
             <div className='bedrooms-pagination'>
               <span>1/2</span>
             
-              <ArrowButton classes="set-image__btn" direction={1} />
-              <ArrowButton classes="set-image__btn" direction={-1} />
+              <ArrowButton classes="set-image__btn bedroom__btn-left" direction={1} />
+              <ArrowButton classes="set-image__btn bedroom__btn-right" direction={-1} />
             </div>
           </div>
+          <div className='bedrooms-section__photos'>
+            <div className='bedroom__photos-item'>
+              <img alt='bedrom photo' className='bedroom__photo' src='https://img.forte-meble.pl/9311-large_default/zestaw-sypialnia-chalet.jpg'></img>
+              <div className='bedroom__head-text'>
+                <span className='bedroom__label'>Sypialnia 1</span>
+                <span className='bedroom__subLabel'>2 pojedyncze łóżka</span>
+              </div>
+            </div>
+            <div className='bedroom__photos-item'>
+              <img alt='bedrom photo' className='bedroom__photo' src='https://img.forte-meble.pl/9311-large_default/zestaw-sypialnia-chalet.jpg'></img>
+              <div className='bedroom__head-text'>
+                <span className='bedroom__label'>Sypialnia 2</span>
+                <span className='bedroom__subLabel'>2 pojedyncze łóżka</span>
+              </div>
+            </div>
+          </div>
+          <hr className='place-details__ruler'></hr>
         </div>
+        <div className='isolated-section specific-section'>
+          <div className='equipment-section'>
+            <h2 className='section-header'>Co znajdziesz w tym miejscu</h2>
+            <div className='equipment-items__container'>
+              {[...Array(10)].map(el => (
+                <div className='equipment-item'>
+                  <div></div>
+                  <GiDesk className='equipment-item__icon'></GiDesk>       
+                  <span>Widok na jezioro</span>             
+                </div>
+              ))}
+              <button className='show-equipment__button'>
+                <span className='equipment-button__span'>Pokaż wszystkie udogodnienia (51)</span>
+              </button>
+            </div>
+            <hr className='place-details__ruler'></hr>
+          </div>          
+        </div>
+        <div className='isolated-section specific-section'>
+            <div className='calendar-section'>
+              <h2 className='section-header'>Wybierz datę wymeldowania</h2>
+              <div className='calendar-container'>
+                <div className='calendar-item'>
+                  <Calendar 
+                    calendarType='gregory' 
+                    showNeighboringMonth={false}
+                    tileClassName={tileClassName} 
+                    selectRange={true}
+                    onChange={handleDateChange} />
+                </div>
+                <div className='calendar-item'>
+                  <Calendar 
+                    calendarType='gregory' 
+                    showNeighboringMonth={false}
+                    tileClassName={tileClassName} 
+                    selectRange={true} 
+                    onChange={handleDateChange} />
+                </div>
+              </div>              
+            </div>
+          </div>
       </div>
     </div>
   )

@@ -182,8 +182,12 @@ $main-font: 0.91rem;
     }
 }
 
-.facilities-item__icon {
+.facilities-item__icon, .equipment-item__icon {
     font-size: 24px;
+}
+
+.equipment-item__icon {
+    margin-right: 16px;
 }
 
 .isolated-section {
@@ -219,7 +223,12 @@ $main-font: 0.91rem;
     }
 }
 
-.bedrooms-seciton__header {
+.bedroom-section {
+    padding: 48px 0;
+}
+
+.bedrooms-section__header {
+    padding-bottom: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -230,6 +239,74 @@ $main-font: 0.91rem;
     align-items: center;
 }
 
-.set-image__btn {
-    
+.bedroom__btn-left, .bedroom__btn-right {
+    box-shadow: 0 5px 5px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.bedroom__btn-left { 
+    margin: 0 6px 0 16px;
+}
+
+.bedroom__btn-right { 
+    margin-left: 6px;
+}
+
+.bedrooms-section__photos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bedroom__photos-item {
+    width: 50%;
+    padding: 8px;
+}
+
+.bedroom__photo {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.bedroom__head-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    .bedroom__label {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .bedroom__subLabel {
+        margin-top: 4px;
+    }
+}
+
+.specific-section {
+    padding: 48px 0;
+}
+
+.section-header {
+    padding-bottom: 24px;
+}
+
+.equipment-items__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.equipment-item {
+    padding: 0 8px 16px 8px;
+    display: flex;
+    align-items: center;
+}
+
+.show-equipment__button {
+    padding: 13px 23px;
+    border-radius: 8px;
+    margin-top: 24px;
+    background-color: transparent;
+    border: 2px #222222 solid;
+    .equipment-button__span {
+        font-weight: bold;
+    }
 }
