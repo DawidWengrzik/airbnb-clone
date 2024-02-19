@@ -13,6 +13,12 @@ $main-font: 0.91rem;
     align-items: center;
 }
 
+.place-details {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
 .place-info {
     max-width: 80vw;  
     padding: 0 80px;  
@@ -309,4 +315,100 @@ $main-font: 0.91rem;
     .equipment-button__span {
         font-weight: bold;
     }
+}
+
+.calendar-footer__btn {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration:underline;
+    min-width: 48px;
+    height: 48px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    &:hover {
+        background-color: #fcf8f7;
+    }
+}
+
+.calendar-footer__icon {
+    width: 24px;
+    height: 24px;
+}
+
+.calendar-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 34px;
+}
+
+.place-details__reservation {
+    display: flex;
+    justify-content: flex-end;
+    width: 45%;
+    min-height: 100%;
+    margin-top: 32px;
+}
+
+.reservation-wrapper {
+    width: 370px;
+    height: 495px;
+    background-color: transparent;
+    border-radius: 12px;
+    border: #e6e3e3 1px solid;
+    position: sticky;
+    top: 80px;
+    left: 0px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    box-sizing: border-box;
+    padding: 24px;
+}
+
+.price-header {
+    margin-bottom: 24px;
+}
+
+.price-span {
+    font-size: 22px;
+    font-weight: 500;
+    &:first-child {
+        color: #949494;
+        text-decoration: line-through;
+    }
+    &:last-child {
+        font-size: 16px;
+        font-weight:300;
+    }
+}
+
+.reservation-panel {
+    border: 1px #949494 solid;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.reservation-first-panel, .reservation-second-panel {
+    height: 56px;
+}
+
+.reservation-second-panel {
+    border-top: 1px #949494 solid;
+}
+
+.reservation-checkin_btn {
+    width: 50%;
+    height: 100%;
+    &:first-child {
+        border-right: 1px #949494 solid;
+    }
+}
+
+.confirm-reservation__btn {
+    width: 100%;
+    padding: 14px 24px;
+}
+
+.confirm-reservation__span {
+    font-weight: bold;
+    font-size: 15px;
 }
