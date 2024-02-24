@@ -16,8 +16,9 @@ const PlaceDetailsContent = ({ specificPlace }) => {
 
   const { name, description, price, photos} = specificPlace
   const [selectedRange, setSelectedRange] = useState('');
-  const nextMonth = new Date();  
-  nextMonth.setMonth(nextMonth.getMonth() +1); 
+  const date = new Date();  
+  const today = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+  date.setMonth(date.getMonth() +1); 
 
   const handleDayClick = (date) => {
     setSelectedRange(previousRange => {
@@ -198,7 +199,7 @@ const PlaceDetailsContent = ({ specificPlace }) => {
                     tileClassName={tileClassName} 
                     onClickDay={handleDayClick}
                     value={selectedRange}
-                    defaultActiveStartDate={nextMonth}
+                    defaultActiveStartDate={date}
                     selectRange={true} />
                 </div>
               </div>              
@@ -219,11 +220,24 @@ const PlaceDetailsContent = ({ specificPlace }) => {
               <span className='price-span'>noc</span>
             </div>
             <div className='reservation-panel'>
-              <div className='reservation-first-panel'>
-                <div className='reservation-checkin_btn'></div>
-                <div className='reservation-checkin_btn'></div>
-              </div>
-              <div className='reservation-second-panel'></div>
+              <button className='reservation-btn__wrapper'>
+                <span className='reservation-first-panel'>
+                  <span className='first-panel__left'> 
+                    <span className='reservation-checkin__span'>Zameldowanie</span>
+                    <span className='reservation-checkin__date--span'>{today}</span>
+                  </span>  
+                  <span className='first-panel__right'> 
+                    <span className='reservation-checkin__span'>Wymeldowanie</span>
+                    <span className='reservation-checkin__date--span'>{today}</span>
+                  </span>                 
+                </span>
+              </button>       
+              <button className='reservation-btn__wrapper'>
+                <span className='reservation-second-panel'>
+                  <span className='reservation-checkin__span'>Goście</span>
+                      <span className='reservation-checkin__date--span'>1 gość</span>
+                  </span>
+              </button>       
             </div>
             <button className='confirm-reservation__btn'>
               <span className='confirm-reservation__span'>Rezerwuj</span>

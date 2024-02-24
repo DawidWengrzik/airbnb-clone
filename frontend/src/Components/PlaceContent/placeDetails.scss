@@ -387,21 +387,60 @@ $main-font: 0.91rem;
     margin-bottom: 16px;
 }
 
-.reservation-first-panel, .reservation-second-panel {
+.reservation-btn__wrapper {
+    display: block;
+    padding: 0;
+    width: 100%;
     height: 56px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    span {
+        span {
+            display: block;
+        }
+    }
+}
+
+.reservation-first-panel {
+    border-bottom: 1px #949494 solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.first-panel__left, .first-panel__right {
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.first-panel__left {
+    border-right: 1px #949494 solid;
+
 }
 
 .reservation-second-panel {
-    border-top: 1px #949494 solid;
+    position: relative;
+    display: block;
 }
 
-.reservation-checkin_btn {
-    width: 50%;
-    height: 100%;
-    &:first-child {
-        border-right: 1px #949494 solid;
-    }
+.reservation-checkin__span{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    font-size: 12px;
+    text-align: start;
+    font-weight: 700;
+    line-height: .75rem;
+    
 }
+
+.reservation-checkin__date--span{
+    padding: 26px 12px 10px 12px;
+    text-align: start;
+    font-size: 14px;
+} 
 
 .confirm-reservation__btn {
     width: 100%;
