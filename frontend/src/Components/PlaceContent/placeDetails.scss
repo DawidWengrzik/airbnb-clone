@@ -344,24 +344,29 @@ $main-font: 0.91rem;
 
 .place-details__reservation {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
     width: 45%;
     min-height: 100%;
     margin-top: 32px;
 }
 
-.reservation-wrapper {
-    width: 370px;
-    height: 495px;
-    background-color: transparent;
-    border-radius: 12px;
-    border: #e6e3e3 1px solid;
+.reservation-sticky {
     position: sticky;
     top: 80px;
     left: 0px;
+}
+
+.reservation-wrapper {
+    width: 370px;
+    height: fit-content;
+    background-color: transparent;
+    border-radius: 12px;
+    border: #e6e3e3 1px solid;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
     box-sizing: border-box;
     padding: 24px;
+    margin-bottom: 24px;
 }
 
 .price-header {
@@ -388,6 +393,7 @@ $main-font: 0.91rem;
 }
 
 .reservation-btn__wrapper {
+    position: relative;
     display: block;
     padding: 0;
     width: 100%;
@@ -441,13 +447,128 @@ $main-font: 0.91rem;
     text-align: start;
     font-size: 14px;
 } 
-
 .confirm-reservation__btn {
     width: 100%;
     padding: 14px 24px;
+    border: none;    
+    background: rgb(255,56,92);
+    background: linear-gradient(90deg, rgba(255,56,92,1) 0%, rgba(146,23,77,1) 100%);
+    border-radius: 12px;
+    &:hover { 
+        cursor: pointer;
+    }
 }
 
 .confirm-reservation__span {
     font-weight: bold;
     font-size: 15px;
+    color: white;
+}
+
+.dropdown-icon__wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-width: 50%;
+    min-width: 36px;
+    padding-right: 12px;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+}
+
+.price-info__span {
+    margin-top: 8px;
+    font-weight: 300;
+    font-size: 13.5px;
+}
+
+.price-info__el {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.price-el {
+    display: flex;
+    justify-content: space-between;  
+    &:not(:nth-child(3)) {
+        padding-bottom: 16px;
+    }
+}
+
+.price-el__left {
+    text-decoration: underline;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.price-elements__container {
+    margin-top: 24px;
+    padding-bottom: 24px;
+    position: relative;
+}
+
+.price-el__summary {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    .price-el__left {
+        text-decoration: none;
+    }
+}
+
+.availability-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.availability-info {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    .availability-info__header {
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+
+.badge-container {
+    svg {
+        width: 32px;
+        height: 32px;
+        color: #ff385c !important;
+        path {
+            fill: #ffc8c8;
+        }
+    }
+}
+
+.availability-info__description {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #949494;
+    font-weight: 400;
+}
+
+.report-container {
+    display: flex;
+    justify-content: center;
+    color: #949494;
+}
+
+.report-flag {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.report-link {
+    font-size: 14px;
+    text-decoration: underline;
+    color: #949494;
 }

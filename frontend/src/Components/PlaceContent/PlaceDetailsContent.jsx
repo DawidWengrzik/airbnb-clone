@@ -4,6 +4,9 @@ import {GiSportMedal, GiDesk} from 'react-icons/gi'
 import { FiShare } from 'react-icons/fi'
 import { HiChevronRight } from 'react-icons/hi';
 import { TbKeyboard } from "react-icons/tb";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { IoDiamondOutline } from "react-icons/io5";
+import { IoFlag } from "react-icons/io5";
 
 import PlaceCollage from './placeCollage'
 import ArrowButton from '../ArrowButton';
@@ -213,38 +216,82 @@ const PlaceDetailsContent = ({ specificPlace }) => {
           </div>
         </div>
         <div className='place-details__reservation'>
-          <div className='reservation-wrapper'>
-            <div className='price-header'>
-              <span className='price-span'>268&nbsp;zł</span>
-              <span className='price-span'>&nbsp;221&nbsp;zł&nbsp;</span>
-              <span className='price-span'>noc</span>
-            </div>
-            <div className='reservation-panel'>
-              <button className='reservation-btn__wrapper'>
-                <span className='reservation-first-panel'>
-                  <span className='first-panel__left'> 
-                    <span className='reservation-checkin__span'>Zameldowanie</span>
-                    <span className='reservation-checkin__date--span'>{today}</span>
-                  </span>  
-                  <span className='first-panel__right'> 
-                    <span className='reservation-checkin__span'>Wymeldowanie</span>
-                    <span className='reservation-checkin__date--span'>{today}</span>
-                  </span>                 
-                </span>
-              </button>       
-              <button className='reservation-btn__wrapper'>
-                <span className='reservation-second-panel'>
-                  <span className='reservation-checkin__span'>Goście</span>
-                      <span className='reservation-checkin__date--span'>1 gość</span>
+          <div className='reservation-sticky'>
+            <div className='reservation-wrapper'>
+              <div className='price-header'>
+                <span className='price-span'>268&nbsp;zł</span>
+                <span className='price-span'>&nbsp;221&nbsp;zł&nbsp;</span>
+                <span className='price-span'>noc</span>
+              </div>
+              <div className='reservation-panel'>
+                <button className='reservation-btn__wrapper'>
+                  <span className='reservation-first-panel'>
+                    <span className='first-panel__left'> 
+                      <span className='reservation-checkin__span'>Zameldowanie</span>
+                      <span className='reservation-checkin__date--span'>{today}</span>
+                    </span>  
+                    <span className='first-panel__right'> 
+                      <span className='reservation-checkin__span'>Wymeldowanie</span>
+                      <span className='reservation-checkin__date--span'>{today}</span>
+                    </span>                 
                   </span>
-              </button>       
+                </button>       
+                <button className='reservation-btn__wrapper'>
+                  <span className='reservation-second-panel'>
+                    <span className='reservation-checkin__span'>Goście</span>
+                    <span className='reservation-checkin__date--span'>1 gość</span>
+                  </span>
+                    <span className='dropdown-icon__wrapper'>
+                      <RiArrowDropDownLine />
+                    </span>
+                </button>       
+              </div>
+              <button className='confirm-reservation__btn'>
+                <span className='confirm-reservation__span'>Rezerwuj</span>
+              </button>
+              <div className='price-info__el'>
+                <span className='price-info__span'>Płatność nie zostanie jeszcze naliczona</span>
+              </div>
+              <div className='price-elements__container'>
+                <div className='price-el'>
+                  <span className='price-el__left'>1 982 zł x 5 dni</span>
+                  <span className='price-el__right'>9 910 zł</span>
+                </div>
+                <div className='price-el'>
+                  <span className='price-el__left'>Opłata za sprzątanie</span>
+                  <span className='price-el__right'>517 zł</span>
+                </div>
+                <div className='price-el'>
+                  <span className='price-el__left'>Opłata serwisowa Airbnb</span>
+                  <span className='price-el__right'>990 zł</span>
+                </div>
+                <hr className='place-details__ruler'></hr> 
+              </div>
+              <div className='price-el__summary'>
+                <span className='price-el__left'>Łącznie</span>
+                <span className='price-el__right'>9 910 zł</span>
+              </div>
             </div>
-            <button className='confirm-reservation__btn'>
-              <span className='confirm-reservation__span'>Rezerwuj</span>
-            </button>
+            
+            <div className='reservation-wrapper'>
+              <div className='availability-wrapper'>
+                <div className='badge-container'>
+                  <IoDiamondOutline />
+                </div>
+                <div className='availability-info'>
+                  <span className='availability-info__header'>To rzadkość</span>
+                  <span className='availability-info__description'>Miejsce, które oferuje Ada, jest zazwyczaj w całości zarezerwowane.</span>
+                </div>
+              </div>
+            </div>
+            <div className='report-container'>
+              <span className='report-flag'>
+                <IoFlag  className='report-flag__icon'/>
+              </span>
+              <a className='report-link'>Zgłoś tę ofertę</a>
+            </div>
           </div>
         </div>
-        <hr className='place-details__ruler'></hr>    
       </div>
       <div style={{height: '4000px'}}></div>
     </div>
