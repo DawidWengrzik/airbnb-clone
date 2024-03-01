@@ -355,6 +355,7 @@ $main-font: 0.91rem;
     position: sticky;
     top: 80px;
     left: 0px;
+    padding-bottom: 48px;
 }
 
 .reservation-wrapper {
@@ -571,4 +572,119 @@ $main-font: 0.91rem;
     font-size: 14px;
     text-decoration: underline;
     color: #949494;
+}
+
+.full-size__section {
+    padding: 48px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-container {
+    display: flex;
+    margin-top: 16px;
+}
+
+.leaves-img {
+    height: 132px;
+}
+
+.score-header {
+    font-size: 96px;
+    font-weight: 600;
+    display: flex;
+    padding: 0;
+    transform: translateY(-35px);
+}
+
+.score-header__span {
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 8px;
+}
+
+.score-header__description {
+    display: block;
+    width: 28%;
+    font-size: 18px;
+    color: #949494;
+    text-align: center;
+    line-height: 1.5rem;
+    margin-bottom: 64px;
+}
+
+.score-parts__container {
+    width: 100%;
+    .score-parts__list {
+        width: 100%;
+        display: flex;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+
+.score-parts__list--element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 24px 4px;
+
+
+    &:first-child {
+        padding: 0;
+        padding-right: 32px;
+        .score-element__header {
+            margin-bottom: 8px;
+        }
+    }
+        
+    &:not(:last-child) {
+        border-right: 1px #e6e3e3 solid;
+    }
+}
+
+.score-element__header {
+    font-weight: 500;
+    line-height: 1.2rem;
+    font-size: 14px;
+}
+
+.score-bar__element {
+    display: flex;
+    font-size: 12px;
+    line-height: 16px;
+    justify-content: space-between;
+    align-items: center;
+    .score-progressbar {       
+        display: block;
+        width: 90%;
+        height: 4px;
+        border-radius: 4px;
+        background-color: #949494;      
+        &:first-child { 
+            background-color: #222;
+        }
+    }
+}
+
+.score-element__header--container {
+    display: flex;
+    flex-direction: column;
+}
+
+.score-element__partial--score {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.score-element__icon {
+    width: 32px;
+    height: 32px;
+}
+
+.content-icon {
+    display: flex;
+    align-items: end;
 }

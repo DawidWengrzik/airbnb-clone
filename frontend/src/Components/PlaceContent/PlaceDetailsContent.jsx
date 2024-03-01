@@ -7,6 +7,15 @@ import { TbKeyboard } from "react-icons/tb";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoDiamondOutline } from "react-icons/io5";
 import { IoFlag } from "react-icons/io5";
+import { TfiSpray } from "react-icons/tfi";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { FaKey } from "react-icons/fa";
+import { CiChat2 } from "react-icons/ci";
+import { CiMap } from "react-icons/ci";
+import { RiPriceTagLine } from "react-icons/ri";
+
+import leavesLeft from '../../assets/images/leaves-left.png';
+import leavesRight from '../../assets/images/leaves-right.png';
 
 import PlaceCollage from './placeCollage'
 import ArrowButton from '../ArrowButton';
@@ -292,8 +301,86 @@ const PlaceDetailsContent = ({ specificPlace }) => {
             </div>
           </div>
         </div>
+        <hr className='place-details__ruler'></hr>
+      </div>  
+      
+      <div className='full-size__section'>
+        <div className='score-container'>
+          <img src={leavesLeft} className='leaves-img'></img>
+          <div>
+            <span className='score-header'>5,0</span>
+          </div>
+          <img src={leavesRight} className='leaves-img'></img>
+        </div>    
+        <span className='score-header__span'>Wybór gości</span>    
+        <p className='score-header__description'>Jeden z najbardziej lubianych domów na Airbnb na podstawie ocen i recenzji od gości oraz wiarygodności gospodarza</p>
+        <div className='score-parts__container'>
+          <ul className='score-parts__list'>
+            <li className='score-parts__list--element'>
+              <span className='score-element__header'>Ocena ogólna</span>
+              <li className='score-element__content'>
+                  <li className='score-bar__element'>
+                    <span className='score-number'>5</span><div className='score-progressbar'></div>
+                  </li>
+                  <li className='score-bar__element'>
+                    <span className='score-number'>4</span><div className='score-progressbar'></div>
+                  </li>
+                  <li className='score-bar__element'>
+                    <span className='score-number'>3</span><div className='score-progressbar'></div>
+                  </li>
+                  <li className='score-bar__element'>
+                    <span className='score-number'>2</span><div className='score-progressbar'></div>
+                  </li>
+                  <li className='score-bar__element'>
+                    <span className='score-number'>1</span><div className='score-progressbar'></div>
+                  </li>
+              </li>
+            </li>
+            <li className='score-parts__list--element'>
+              <div className='score-element__header--container'>
+                <span className='score-element__header'>Czystość</span>
+                <span className='score-element__partial--score'>4,8</span>
+              </div>
+              <div className='score-element__content content-icon'><TfiSpray className='score-element__icon'/></div>
+            </li>
+            <li className='score-parts__list--element'>
+              <div className='score-element__header--container'>
+                <span className='score-element__header'>Zgodność z opisem</span>
+                <span className='score-element__partial--score'>5,0</span></div>
+              <div className='score-element__content content-icon'><FaRegCheckCircle className='score-element__icon'/></div>
+            </li>
+            <li className='score-parts__list--element'>
+              <div className='score-element__header--container'>
+                <span className='score-element__header'>Zameldowanie</span>
+                <span className='score-element__partial--score'>4,9</span>
+              </div>
+              <div className='score-element__content content-icon'><FaKey className='score-element__icon score-element_keyIcon' style = {{transform: 'rotateY(180deg)' }}/></div>
+            </li>
+            <li className='score-parts__list--element'>
+              <div className='score-element__header--container'>
+                <span className='score-element__header'>Komunikacja</span>
+                <span className='score-element__partial--score'>4,9</span>
+              </div>
+              <div className='score-element__content content-icon'><CiChat2 className='score-element__icon'/></div>
+            </li>
+            <li className='score-parts__list--element'>
+              <div className='score-element__header--container'>
+                <span className='score-element__header'>Lokalizacja</span>
+                <span className='score-element__partial--score'>5,0</span>
+              </div>
+              <div className='score-element__content content-icon'><CiMap className='score-element__icon'/></div>
+            </li>
+            <li className='score-parts__list--element'>
+              <div className='score-element__header--container'>
+                <span className='score-element__header'>Wartość/cena</span>
+                <span className='score-element__partial--score'>4,8</span>
+              </div>
+              <div className='score-element__content content-icon'><RiPriceTagLine className='score-element__icon score-element_keyIcon' style = {{transform: 'rotateY(30deg)' }}/></div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div style={{height: '4000px'}}></div>
+      {/* <div style={{height: '4000px'}}></div> */}
     </div>
   )
 }
